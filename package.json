@@ -6,13 +6,37 @@
   "scripts": {
     "prestart": "npm install",
     "start": "cross-env NODE_ENV=development webpack serve --mode development --open --inline --hot --port 3333",
+    "build": "cross-env NODE_ENV=production webpack --mode production --progress --config webpack.production.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "ali-oss": "^6.16.0",
+    "autoprefixer": "^10.3.1",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-vue": "^7.14.0",
+    "html-webpack-plugin": "^5.3.2",
+    "husky": "^7.0.1",
+    "less": "^4.1.1",
+    "less-loader": "^10.0.1",
+    "mini-css-extract-plugin": "2.4.7",
+    "postcss-loader": "^6.1.1",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
     "vue-loader": "^15.9.7",
     "vue-template-compiler": "^2.6.14",
     "webpack": "^5.47.1",
@@ -20,6 +44,18 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "vue": "^2.6.14"
+    "@handsontable/vue": "^8.4.0",
+    "axios": "^0.24.0",
+    "element-ui": "^2.15.7",
+    "github-markdown-css": "^4.0.0",
+    "handsontable": "^8.4.0",
+    "hui-vue": "^1.2.1",
+    "js-cookie": "^3.0.0",
+    "nprogress": "^0.2.0",
+    "papaparse": "^5.2.0",
+    "vue": "^2.6.14",
+    "vue-json-viewer": "^2.2.22",
+    "vue-router": "3.0.7",
+    "vuex": "^3.6.2"
   }
 }

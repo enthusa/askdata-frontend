@@ -14,82 +14,82 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        admin: '@/admin.js'
-    },
-    output: {
-        path: DIST_PATH,
-        filename: '[name].js'
-    },
-    module: {
-        rules: [{
-            enforce: 'pre',
-            test: /\.(js|vue)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'eslint-loader',
-                options: {
-                    formatter: require('eslint-friendly-formatter')
-                }
-            }
-        }, {
-            test: /\.vue$/,
-            loader: 'vue-loader'
-        }, {
-            test: /\.pug$/,
-            loader: 'pug-plain-loader'
-        }, {
-            test: /\.js$/,
-            loader: 'babel-loader',
-            include: [SRC_PATH, HUI_PATH]
-        }, {
-            test: /\.css$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
-        }, {
-            test: /\.less$/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
-        }, {
-            test: /\.(ttf|eot|woff|woff2)$/,
-            type: 'asset/inline'
-        }, {
-            test: /\.(png|jpg|gif|svg)$/,
-            type: 'asset/inline'
-        }, {
-            test: /\.(md|txt|snippets)$/,
-            type: 'asset/source'
-        }]
-    },
-    resolve: {
-        extensions: ['.js', '.vue'],
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js',
-            '@': SRC_PATH
+  entry: {
+    admin: '@/admin.js'
+  },
+  output: {
+    path: DIST_PATH,
+    filename: '[name].js'
+  },
+  module: {
+    rules: [{
+      enforce: 'pre',
+      test: /\.(js|vue)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'eslint-loader',
+        options: {
+          formatter: require('eslint-friendly-formatter')
         }
-    },
-    devServer: {
-        historyApiFallback: true,
-        noInfo: true,
-        proxy: {
-            '/api/*': {
-                secure: false,
-                changeOrigin: true,
-                target: 'https://zhiyuanbiji.cn'
-                // target: 'http://localhost:8082'
-            }
-        }
-    },
-    performance: {
-        hints: false
-    },
-    devtool: 'eval-source-map',
-    plugins: [
-        new webpack.DefinePlugin({ 'process.env': env }),
-        new MiniCssExtractPlugin({ filename: '[name].css' }),
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'DAVID',
-            template: './index.html'
-        }),
-        new VueLoaderPlugin()
-    ]
+      }
+    }, {
+      test: /\.vue$/,
+      loader: 'vue-loader'
+    }, {
+      test: /\.pug$/,
+      loader: 'pug-plain-loader'
+    }, {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      include: [SRC_PATH, HUI_PATH]
+    }, {
+      test: /\.css$/,
+      use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+    }, {
+      test: /\.less$/,
+      use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
+    }, {
+      test: /\.(ttf|eot|woff|woff2)$/,
+      type: 'asset/inline'
+    }, {
+      test: /\.(png|jpg|gif|svg)$/,
+      type: 'asset/inline'
+    }, {
+      test: /\.(md|txt|snippets)$/,
+      type: 'asset/source'
+    }]
+  },
+  resolve: {
+    extensions: ['.js', '.vue'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': SRC_PATH
+    }
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true,
+    proxy: {
+      '/api/*': {
+        secure: false,
+        changeOrigin: true,
+        // target: 'https://zhiyuanbiji.cn'
+        target: 'http://localhost:3000'
+      }
+    }
+  },
+  performance: {
+    hints: false
+  },
+  devtool: 'eval-source-map',
+  plugins: [
+    new webpack.DefinePlugin({ 'process.env': env }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'Nebula',
+      template: './index.html'
+    }),
+    new VueLoaderPlugin()
+  ]
 };

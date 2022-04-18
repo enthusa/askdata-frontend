@@ -1,13 +1,4 @@
-<template>
-  <h2>{{ message }}</h2>
+<template lang='pug'>
+  transition(name='el-fade-in-linear' mode='out-in')
+    router-view
 </template>
-
-<script>
-  export default {
-    data() {
-      return {
-        message: 'Hello Vue!'
-      };
-    }
-  };
-</script>

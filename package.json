@@ -46,6 +46,7 @@
   "dependencies": {
     "@handsontable/vue": "^8.4.0",
     "axios": "^0.24.0",
+    "core-js": "^3.8.3",
     "element-ui": "^2.15.7",
     "github-markdown-css": "^4.0.0",
     "handsontable": "^8.4.0",

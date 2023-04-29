@@ -73,8 +73,7 @@ module.exports = {
       '/api/*': {
         secure: false,
         changeOrigin: true,
-        // target: 'https://zhiyuanbiji.cn'
-        target: 'http://localhost:3000'
+        target: 'https://askdata.inscode.cc'
       }
     }
   },

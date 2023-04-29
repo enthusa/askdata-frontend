@@ -18,7 +18,6 @@
       ...mapActions('posts', ['getListByPage', 'save']),
 
       initialize() {
-        console.log('xx');
         this.getListByPage();
       }
     },

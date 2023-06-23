@@ -7,6 +7,7 @@
     "prestart": "npm install",
     "start": "cross-env NODE_ENV=development webpack serve --mode development --open --inline --hot --port 3333",
     "build": "cross-env NODE_ENV=production webpack --mode production --progress --config webpack.production.config.js",
+    "deploy": "node deploy.config.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "keywords": [],

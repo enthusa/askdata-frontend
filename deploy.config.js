@@ -12,7 +12,7 @@ const envMap = {
   prod: 'prod'
 };
 
-const target = 'david';
+const target = 'askdata';
 const env = envMap[args[1]] || 'dev';
 
 const uploadFiles = target => {

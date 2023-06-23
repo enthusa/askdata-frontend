@@ -15,7 +15,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    admin: '@/admin.js'
+    askdata: '@/admin.js'
   },
   output: {
     path: DIST_PATH,

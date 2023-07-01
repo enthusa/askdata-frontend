@@ -73,7 +73,8 @@ module.exports = {
       '/api/*': {
         secure: false,
         changeOrigin: true,
-        target: 'https://askdata.inscode.cc'
+        // target: 'https://askdata.inscode.cc',
+        target: 'http://localhost:8080'
       }
     }
   },
@@ -86,7 +87,7 @@ module.exports = {
     new MiniCssExtractPlugin({ filename: '[name].css' }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Nebula',
+      title: 'Ask Data',
       template: './index.html'
     }),
     new VueLoaderPlugin()

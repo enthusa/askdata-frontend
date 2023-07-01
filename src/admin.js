@@ -1,4 +1,5 @@
 import 'hui-vue/dist/index.css';
+import 'handsontable/dist/handsontable.full.css';
 import '@/style/main.less';
 import Vue from 'vue';
 import Element from 'element-ui';

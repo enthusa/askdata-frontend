@@ -1,11 +1,17 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import datasources from './modules/datasources';
+import venus from './modules/venus';
 import posts from './modules/posts';
+import tables from './modules/tables';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
+    datasources,
+    venus,
+    tables,
     posts
   },
 

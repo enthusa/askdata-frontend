@@ -13,7 +13,7 @@ export default {
     total: 0,
     list: [],
     loading: false,
-    url: '/api/bi/posts'
+    url: '/api/bi/tables'
   },
 
   mutations: {

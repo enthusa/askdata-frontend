@@ -5,6 +5,7 @@ export default {
   namespaced: true,
 
   state: {
+    catalogs: [],
     instance: {},
     rules: {},
     params: {},
@@ -13,7 +14,7 @@ export default {
     total: 0,
     list: [],
     loading: false,
-    url: '/api/bi/posts'
+    url: '/api/bi/datasources'
   },
 
   mutations: {
@@ -46,10 +47,17 @@ export default {
       }
     },
 
+    getAllCatalogs({ state }, { cb = Hex.empty }) {
+      req.get('/api/bi/catalogs', d => {
+        state.catalogs = d || [];
+        cb(state.catalogs);
+      });
+    },
+
     getInstanceById({ state }, { id, cb = Hex.empty }) {
-      req.get(`${state.url}/${id}`, d => {
-        state.instance = d;
-        cb(state.instance);
+      req.get(`${state.url}/${id}`, ({ dataSource, catalogs }) => {
+        state.instance = dataSource || {};
+        cb(catalogs);
       });
     },
 

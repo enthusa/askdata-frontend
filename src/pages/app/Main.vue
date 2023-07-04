@@ -10,13 +10,12 @@
         hot-table.hui-vskip(ref='rs' :settings='hotSettings')
         el-pagination(v-if='total>pageSize' small :total='total' :current-page='page' :page-size='pageSize' @current-change='handleCurrentChange' @size-change='handleSizeChange' background layout='total, prev, pager, next')
       el-col(:span=12)
-        ace-editor.hui-vspace(v-if='sql' v-model='sql' mode='mysql' :style="{height: '300px'}")
+        el-input(v-if='sql' v-model='sql' type='textarea' :rows=8)
 </template>
 
 <script>
   import { mapState, mapActions } from 'vuex';
   import { HotTable } from '@handsontable/vue';
-  import AceEditor from 'hui-vue/src/components/AceEditor';
 
   export default {
     data() {
@@ -41,7 +40,7 @@
       };
     },
 
-    components: { AceEditor, HotTable },
+    components: { HotTable },
 
     computed: {
       ...mapState(['posts'])

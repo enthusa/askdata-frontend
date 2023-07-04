@@ -4,7 +4,10 @@
     ul.list-inline.toolbar
       li: el-button(type='primary' icon='el-icon-s-promotion' @click='translateHandler' :loading='translating' :disabled='!hex.validString(question)') 提交
       li: el-button(icon='el-icon-refresh' @click='resetHandler') 重置
-      li: el-tag(v-if='requestDuration') {{requestDuration}}s
+      li: el-tag(v-if='requestDuration' type='info') {{requestDuration}}s
+      li(v-loading='translating')
+        span.small 快捷提问:&nbsp;
+        el-tag.pointer.hui-hspace.hui-vspace(v-for='cmd in shortcuts' :key='cmd' type='success' @click='shortcutHandler(cmd)') {{cmd}}
     el-row(:gutter=16)
       el-col(:span=12)
         hot-table.hui-vskip(ref='rs' :settings='hotSettings')
@@ -25,6 +28,7 @@
           height: 'auto',
           licenseKey: 'non-commercial-and-evaluation'
         },
+        shortcuts: ['有哪些国家?', '拥有最多城市的国家?', '人口数量前十的国家?'],
         translating: false,
         requestDuration: null,
         sql: null,
@@ -57,6 +61,11 @@
           colHeaders: [],
           data: []
         });
+      },
+
+      shortcutHandler(cmd) {
+        this.question = cmd;
+        this.translateHandler();
       },
 
       queryHandler() {

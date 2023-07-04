@@ -2,6 +2,8 @@
   section
     el-form(:model='tables.params' inline label-suffix=':')
       el-form-item
+        el-button(type='primary' icon='el-icon-plus' @click="$router.push('/ds')") 数据源
+      el-form-item
         el-button(type='primary' icon='el-icon-refresh' @click='reload' :loading='tables.loading') 刷新
     el-table.hui-vskipp(:data='tables.list' v-loading='tables.loading')
       el-table-column(prop='id' label='ID')
